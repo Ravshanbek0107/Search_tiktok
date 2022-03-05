@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    p{
+      font-size: 15pt;
+      color: #e86565;
+      margin-top: -0px;
+  
+    }
+  video{
+    width: 300px;
+    height: 300px;
+  }
+  form{
+    margin-left: 100px;
+  }
+  .fa {
+  font-size: 50px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fa:hover {
+  color: darkblue;
+}
+  </style>
+</head>
+<body style="background-color: antiquewhite;">
+  <div style="margin: auto;margin-top: 200px;">
+  <form>
+    <input type="text" name="" placeholder="Link..">
+    <button>Search...</button>
+  </form>
+  <a href="">sdsdc</a>
+  <video src="">dcd</video>
+  <p onclick="p()">Like </p>
+
+<i onclick="myFunction(this)" class="fa fa-thumbs-up" style="display:none" id="i"></i>
+</div>
+  <script type="text/javascript">
+    document.getElementsByTagName('button')[0].onclick = () =>{
+      event.preventDefault();
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', './index.php?url=' + document.getElementsByTagName('input')[0].value ,true);
+            xhr.onload = () =>{
+              console.log(JSON.parse(xhr.responseText).result.download);
+              document.getElementsByTagName('video')[0].src = JSON.parse(xhr.responseText).result.download
+            }  
+            xhr.send();
+          }
+          function p() {
+          let a = document.getElementById('i');
+            a.style.display = "block";
+          }
+          function myFunction(x) {
+  x.classList.toggle("fa-thumbs-down");
+}
+    
+  </script>
+</body>
+</html>
+<!--
+  https://codepen.io/mohammed-fawzy/pen/peyJbw
+  https://codepen.io/Barrydreamt/pen/vopyPz
+-->
